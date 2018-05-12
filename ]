@@ -1,0 +1,12 @@
+FROM centos 
+RUN yum install git -y 
+RUN git clone -b upload https://github.com/AlissonMMenezes/python-openshift.git
+RUN cd /python-openshift
+RUN yum -y install https://centos7.iuscommunity.org/ius-release.rpm
+RUN yum -y install python36u
+RUN yum -y install python36u-pip
+#RUN yum install python-pip -y
+RUN pip install -r /python-openshift/requirements.txt
+RUN python app.py
+ 
+
